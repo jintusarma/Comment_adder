@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload files</title>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data" id="edit-form">
+        {% csrf_token %}
+        <p>Enter Domain Name :</p>
+        <input type="text" name="domain" id="">
+        <p>Upload Assamese File :</p>
+        <input type="file" name="assamese" id="">
+        <p>Upload Bodo File :</p>
+        <input type="file" name="bodo" id="">
+        <p>Upload English File :</p>
+        <input type="file" name="english" id="">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('edit-form').addEventListener('submit', function()
+        {
+            alert('Sentence Uploaded Suceessfully')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Comments</title>
+</head>
+<body>
+    <form action="" method="post" id="edit-form">
+        {% csrf_token %}
+        <div class="flex mb-4">
+            <p>Domain : </p>
+            <input type="text" name="domain"  value="{{data.domain}}" placeholder="Enter Domain" readonly>
+            <input type="text" name="data_lang" value="{{data.dataset_lang}}" placeholder="Enter Domain" class="hidden" readonly>
+        </div>
+        
+        <div class="flex mb-4">
+            <p>Sentence L1 : </p>
+            <input type="text" name="sen_l1" value="{{data.sentence_L1}}" placeholder="Enter Sentence L1" readonly>
+        </div>
+
+        <div class="flex mb-4">
+            <p>Sentence L2 : </p>
+            <input type="text" name="sen_l2" value="{{data.sentence_L2}}" placeholder="Enter Sentence L2" readonly>
+        </div>
+
+        <div class="flex mb-4">
+            <p>Score : </p>
+            {% comment %} <input type="text" name="score"  placeholder="Enter Score"> {% endcomment %}
+            <select name="score" id="">
+                <option value="0">0 (Very bad)</option>
+                <option value="1">1 (Decent)</option>
+                <option value="2">2 (Good)</option>
+                <option value="3">3 (Very Good)</option>
+                <option value="4">4 (Perfect)</option>
+            </select>
+        </div>
+
+        <div class="flex mb-4">
+            <p>Remark : </p>
+            <input type="text" name="remark" id="" placeholder="Enter Remark">
+        </div>
+
+        <div class="flex mb-4">
+            <p>Type : </p>
+            {% comment %} <input type="text" name="typee" id="" placeholder="Enter Type"> {% endcomment %}
+            <select name="typee" id="">
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+                <option value="type3">Type 3</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('edit-form').addEventListener('submit', function()
+        {
+            alert('Form is Submittted Suceessfully')
+        })
+    </script>
+</body>
+<style>
+    .flex{
+        display: flex;
+    }
+    .mb-4{
+        margin-bottom: 10px;
+    }
+    .hidden{
+        display:none;
+    }
+</style>
+</html>

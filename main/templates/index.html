@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    
+    <div class="flex justify-center mt-8">
+        <table>
+            <thead>
+                <tr>
+                    <th>Domain</th>
+                    <th>Sentence L1</th>
+                    <th>Sentence L2</th>
+                    <th>Score (0-4)</th>
+                    <th>Remark</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{data.domain}}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Submit</button>
+                </form>
+                {% comment %} {% for obj in data %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <tr>
+                        <td>
+                            {{obj.domain}} 
+                            <input type="text" name="domain" value="{{obj.domain}}" class="hidden">
+                        </td>
+                        <td>
+                            {{obj.sentence_L1}}
+                            <input type="text" name="sen_l1" value="{{obj.sentence_L1}}" class="hidden">
+                        </td>
+                        <td>
+                            {{obj.sentence_L2}}
+                            <input type="text" name="sen_l2" value="{{obj.sentence_L2}}" class="hidden">
+                        </td>
+                        <td>
+
+                            <input type="text" name="score" id=""  class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                            
+                        </td>
+                        <td>
+                            
+                            <input type="text" name="remark" id=""  class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                            
+                        </td>
+                        <td>
+                            
+                            <input type="text" name="typee" id=""  class="bg-gray-50 border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                            
+                        </td>
+                        <td>
+                            <button type="submit" class="flex bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Submit</button>
+                        </td>
+                    </tr>
+                    
+                </form>
+                {% endfor %} {% endcomment %}
+            </tbody>
+        </table>
+    </div>
+</body>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</html>
